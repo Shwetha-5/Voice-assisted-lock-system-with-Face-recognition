@@ -3,8 +3,7 @@ import random
 import serial.tools.list_ports
 import time
 
-generate_no = ''.join(random.choices('0123456789', k=3))
-generate_ch= ''.join(random.choices('AB',k=1))
+generate_no = ''.join(random.choices('0123456789', k=6))
 otp=generate_ch+generate_no
 
 # List available serial ports
@@ -18,9 +17,7 @@ com = input("Select the port for interfacing: ")
 if com not in portsList:
     print("Invalid port selection. Exiting...")
     exit()
-'''
-com='/dev/cu.usbserial-120'
-'''
+
 print(f"------------\n\n{com} is selected")
 
 # Initialize Serial Connection
@@ -41,12 +38,12 @@ serialInst.close()
 print("Serial communication closed.")
 
 # Define the API endpoint and API key
-api_key = "ZsPi89nSKKEZ"
+api_key = "" #your API key
 url = "https://www.circuitdigest.cloud/send_sms?ID=101"
 
 # Set the payload with the recipient's mobile number and dynamic variables
 payload = {
-    "mobiles": "918073884941",  # Replace with recipient's mobile number
+    "mobiles": "",  # Replace with recipient's mobile number
     "var1": "Smart Lock System",         # Replace with your first variable
     "var2": f"working. Your Pw for unlocking is {otp}" # Replace with your second variable
 }

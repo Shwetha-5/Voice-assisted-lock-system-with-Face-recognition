@@ -6,7 +6,7 @@ import pickle
 # List available serial ports
 ports = serial.tools.list_ports.comports()
 portsList = [p.device for p in ports]  # Extracting only device names
-'''
+
 for p in portsList:
     print(p)
 
@@ -15,8 +15,7 @@ com = input("Select the port for interfacing: ")
 if com not in portsList:
     print("Invalid port selection. Exiting...")
     exit()
-'''
-com='/dev/cu.usbserial-120'
+
 print(f"------------\n\n{com} is selected")
 
 # Initialize Serial Connection
